@@ -71,7 +71,6 @@
       font-size: 20px;
       cursor: pointer;
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset -1px -1px 0 rgba(0, 0, 0, 0.5), 0 0 6px rgba(0, 183, 235, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
       width: 60%;
       text-align: center;
       color: #1a1a1a;
@@ -79,28 +78,6 @@
       position: relative;
       overflow: hidden;
       touch-action: pan-y; /* Позволяет вертикальную прокрутку на мобильных */
-    }
-
-    .hamburger::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to right, transparent, rgba(0, 183, 235, 0.2), transparent);
-      transition: left 0.4s ease;
-    }
-
-    .hamburger:hover::before,
-    .hamburger:active::before {
-      left: 100%;
-    }
-
-    .hamburger:hover,
-    .hamburger:active {
-      transform: scale(1.03);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset -1px -1px 0 rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 183, 235, 0.5);
     }
 
     .menu ul {
@@ -117,7 +94,6 @@
       border: 1px solid #1a1a1a;
       padding: 8px 18px;
       cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset -1px -1px 0 rgba(0, 0, 0, 0.5), 0 0 5px rgba(0, 183, 235, 0.3);
       text-align: center;
       text-transform: uppercase;
@@ -127,29 +103,6 @@
       overflow: hidden;
       font-size: 14px;
       touch-action: pan-y; /* Позволяет вертикальную прокрутку на мобильных */
-    }
-
-    .menu li::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to right, transparent, rgba(0, 183, 235, 0.2), transparent);
-      transition: left 0.4s ease;
-    }
-
-    .menu li:hover::before,
-    .menu li:active::before {
-      left: 100%;
-    }
-
-    .menu li:hover,
-    .menu li:active {
-      transform: translateY(-1px);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset -1px -1px 0 rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 183, 235, 0.5);
-      background: linear-gradient(to bottom, #e0e0e0, #c8c8c8);
     }
 
     .menu .main-btn {
@@ -163,28 +116,6 @@
       position: relative;
       overflow: hidden;
       touch-action: pan-y; /* Позволяет вертикальную прокрутку на мобильных */
-    }
-
-    .menu .main-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.4s ease;
-    }
-
-    .menu .main-btn:hover::before,
-    .menu .main-btn:active::before {
-      left: 100%;
-    }
-
-    .menu .main-btn:hover,
-    .menu .main-btn:active {
-      transform: translateY(-1px);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset -1px -1px 0 rgba(0, 0, 0, 0.5), 0 0 12px rgba(255, 105, 180, 0.6);
     }
 
     .content {
@@ -208,30 +139,6 @@
       overflow: hidden;
       border-radius: 0;
       touch-action: pan-y; /* Позволяет вертикальную прокрутку на мобильных */
-    }
-
-    /* Убраны эффекты hover и transition для мобильных */
-    @media (hover: hover) {
-      .window {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .window:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(0, 183, 235, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.7), inset -2px -2px 0 rgba(0, 0, 0, 0.5);
-      }
-
-      .window.active::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        background: linear-gradient(to bottom, rgba(0, 183, 235, 0.1) 0%, transparent 40%);
-        animation: vapor-sparks 1.8s infinite ease-in-out;
-      }
     }
 
     .window::before {
@@ -269,22 +176,11 @@
       line-height: 18px;
       text-align: center;
       cursor: pointer;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset -1px -1px 0 rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border-radius: 0;
+      font-size: 12px;
       touch-action: pan-y; /* Позволяет вертикальную прокрутку на мобильных */
-    }
-
-    /* Убраны эффекты hover и transition для мобильных */
-    @media (hover: hover) {
-      .close-btn {
-        transition: all 0.3s ease;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset -1px -1px 0 rgba(0, 0, 0, 0.5);
-      }
-
-      .close-btn:hover,
-      .close-btn:active {
-        background: linear-gradient(45deg, #ff6060, #ff8080);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset -1px -1px 0 rgba(0, 0, 0, 0.5), 0 0 8px rgba(255, 64, 64, 0.6);
-        transform: scale(1.05);
-      }
     }
 
     .window-content {
@@ -317,20 +213,6 @@
       touch-action: pan-y; /* Позволяет вертикальную прокрутку на мобильных */
     }
 
-    /* Убраны эффекты hover и transition для мобильных */
-    @media (hover: hover) {
-      .spec-list li {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .spec-list li:hover {
-        transform: translateY(-1px);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset -1px -1px 0 rgba(0, 0, 0, 0.5), 0 0 5px rgba(0, 183, 235, 0.4);
-      }
-    }
-
     .highlight {
       color: #ff69b4;
       text-shadow: 0 0 3px rgba(255, 105, 180, 0.4);
@@ -346,29 +228,6 @@
       touch-action: pan-y; /* Позволяет вертикальную прокрутку на мобильных */
     }
 
-    /* Убраны эффекты hover и transition для мобильных */
-    @media (hover: hover) {
-      .best-spec {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .best-spec::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: left 0.4s ease;
-      }
-
-      .best-spec:hover::before {
-        left: 100%;
-      }
-    }
-
     .worst-spec {
       background: linear-gradient(45deg, #ff4040, #ff6060);
       color: #fff;
@@ -379,29 +238,6 @@
       touch-action: pan-y; /* Позволяет вертикальную прокрутку на мобильных */
     }
 
-    /* Убраны эффекты hover и transition для мобильных */
-    @media (hover: hover) {
-      .worst-spec {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .worst-spec::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: left 0.4s ease;
-      }
-
-      .worst-spec:hover::before {
-        left: 100%;
-      }
-    }
-
     .subjective-spec {
       background: linear-gradient(45deg, #ffcc00, #ffd633);
       color: #1a1a1a;
@@ -410,29 +246,6 @@
       box-shadow: 0 0 4px rgba(255, 204, 0, 0.5);
       border-radius: 0;
       touch-action: pan-y; /* Позволяет вертикальную прокрутку на мобильных */
-    }
-
-    /* Убраны эффекты hover и transition для мобильных */
-    @media (hover: hover) {
-      .subjective-spec {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .subjective-spec::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: left 0.4s ease;
-      }
-
-      .subjective-spec:hover::before {
-        left: 100%;
-      }
     }
 
     .progress-container {
@@ -489,23 +302,6 @@
 
     .window-difference {
       width: 480px;
-    }
-
-    @keyframes vapor-sparks {
-      0% {
-        background: linear-gradient(to bottom, rgba(0, 183, 235, 0.1) 0%, transparent 10%);
-        transform: translateY(-100%);
-        opacity: 0.9;
-      }
-      50% {
-        background: linear-gradient(to bottom, rgba(255, 105, 180, 0.08) 0%, transparent 30%);
-        opacity: 0.7;
-      }
-      100% {
-        background: linear-gradient(to bottom, rgba(0, 183, 235, 0.05) 0%, transparent 50%);
-        transform: translateY(100%);
-        opacity: 0;
-      }
     }
 
     @media (max-width: 768px) {
@@ -566,54 +362,6 @@
 
       .progress-value {
         flex: 0 0 60px;
-      }
-    }
-
-    @media (hover: hover) { /* Стили для десктопов с поддержкой наведения */
-      .hamburger:hover::before,
-      .hamburger:active::before {
-        left: 100%;
-      }
-
-      .hamburger:hover,
-      .hamburger:active {
-        transform: scale(1.03);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset -1px -1px 0 rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 183, 235, 0.5);
-      }
-
-      .menu li:hover::before,
-      .menu li:active::before {
-        left: 100%;
-      }
-
-      .menu li:hover,
-      .menu li:active {
-        transform: translateY(-1px);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset -1px -1px 0 rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 183, 235, 0.5);
-        background: linear-gradient(to bottom, #e0e0e0, #c8c8c8);
-      }
-
-      .menu .main-btn:hover::before,
-      .menu .main-btn:active::before {
-        left: 100%;
-      }
-
-      .menu .main-btn:hover,
-      .menu .main-btn:active {
-        transform: translateY(-1px);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset -1px -1px 0 rgba(0, 0, 0, 0.5), 0 0 12px rgba(255, 105, 180, 0.6);
-      }
-
-      .best-spec:hover::before {
-        left: 100%;
-      }
-
-      .worst-spec:hover::before {
-        left: 100%;
-      }
-
-      .subjective-spec:hover::before {
-        left: 100%;
       }
     }
   </style>
@@ -761,29 +509,6 @@
     hamburger.addEventListener('touchstart', (e) => {
       e.preventDefault();
       menuList.classList.toggle('active');
-    });
-
-    // Обработка анимации только для десктопных устройств
-    document.querySelectorAll('.window').forEach(window => {
-      // Для десктопов (hover)
-      window.addEventListener('mouseenter', () => {
-        if (window.matchMedia('(hover: hover)').matches) {
-          window.classList.add('active');
-        }
-      });
-      window.addEventListener('mouseleave', () => {
-        if (window.matchMedia('(hover: hover)').matches) {
-          window.classList.remove('active');
-        }
-      });
-
-      // Для мобильных (touch) — отключаем любые действия, кроме прокрутки
-      window.addEventListener('touchstart', (e) => {
-        e.preventDefault(); // Предотвращаем дефолтное поведение, чтобы избежать активации анимации
-      });
-      window.addEventListener('touchend', (e) => {
-        e.preventDefault(); // Убеждаемся, что касание не вызывает анимацию
-      });
     });
   </script>
 </body>
