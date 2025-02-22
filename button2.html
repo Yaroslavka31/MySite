@@ -7,16 +7,8 @@
   <style>
     /* Базовые стили тела */
     body {
-      background: #0a0a0a; /* Глубокий чёрный фон */
-      background-image: 
-        url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJElEQVQYV2NkYGD4z8DAwMiAA8XFxQVCQkI8TIyPDzAwMAAAaNkDXN6eLncAAAAASUVORK5CYII='), /* Лёгкий пиксельный шум */
-        url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M10 0 L12 2 L14 0 L16 2 L18 0 L20 2 L18 4 L20 6 L18 8 L20 10 L18 12 L20 14 L18 16 L20 18 L18 20 L16 18 L14 20 L12 18 L10 20 L8 18 L6 20 L4 18 L2 20 L0 18 L2 16 L0 14 L2 12 L0 10 L2 8 L0 6 L2 4 L0 2 L2 0 Z" fill="none" stroke="%23006699" stroke-width="0.5"/></svg>'),
-        url('data:image/svg+xml;utf8,<svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="15" r="1" fill="%23ffffff" opacity="0.01"/></svg>'),
-        url('data:image/svg+xml;utf8,<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg"><g opacity="0.25"><circle cx="30" cy="30" r="2" fill="%23006699"/><circle cx="270" cy="270" r="2" fill="%23006699"/><circle cx="150" cy="75" r="2" fill="%23006699"/><circle cx="225" cy="105" r="2" fill="%23006699"/><circle cx="45" cy="225" r="2" fill="%23006699"/><circle cx="255" cy="45" r="2" fill="%23006699"/><circle cx="120" cy="180" r="2" fill="%23006699"/><circle cx="180" cy="135" r="2" fill="%23006699"/><circle cx="90" cy="210" r="2" fill="%23006699"/><circle cx="210" cy="90" r="2" fill="%23006699"/><circle cx="60" cy="240" r="2" fill="%23006699"/><circle cx="240" cy="60" r="2" fill="%23006699"/><line x1="30" y1="30" x2="270" y2="270" stroke="%23006699" stroke-width="0.3"/><line x1="150" y1="75" x2="225" y2="105" stroke="%23006699" stroke-width="0.3"/><line x1="45" y1="225" x2="255" y2="45" stroke="%23006699" stroke-width="0.3"/><line x1="120" y1="180" x2="180" y2="135" stroke="%23006699" stroke-width="0.3"/><line x1="90" y1="210" x2="210" y2="90" stroke="%23006699" stroke-width="0.3"/><line x1="60" y1="240" x2="240" y2="60" stroke="%23006699" stroke-width="0.3"/><line x1="30" y1="30" x2="150" y2="75" stroke="%23006699" stroke-width="0.3"/><line x1="270" y1="270" x2="225" y2="105" stroke="%23006699" stroke-width="0.3"/><line x1="45" y1="225" x2="180" y2="135" stroke="%23006699" stroke-width="0.3"/><line x1="255" y1="45" x2="120" y2="180" stroke="%23006699" stroke-width="0.3"/><line x1="90" y1="210" x2="240" y2="60" stroke="%23006699" stroke-width="0.3"/><line x1="210" y1="90" x2="60" y2="240" stroke="%23006699" stroke-width="0.3"/><line x1="30" y1="30" x2="225" y2="105" stroke="%23006699" stroke-width="0.3"/><line x1="270" y1="270" x2="150" y2="75" stroke="%23006699" stroke-width="0.3"/><line x1="45" y1="225" x2="210" y2="90" stroke="%23006699" stroke-width="0.3"/><line x1="255" y1="45" x2="90" y2="210" stroke="%23006699" stroke-width="0.3"/></g></svg>'); /* Сложный узор из точек и линий */
-      background-size: 10px 10px, 20px 20px, 30px 30px, 300px 300px;
-      background-position: 0 0, 0 0, 0 0, 0 0;
-      background-blend-mode: overlay, overlay, overlay, overlay;
-      font-family: "Orbitron", sans-serif; /* Футуристичный шрифт */
+      background: #0a0a0a; /* Глубокий чёрный фон, без узоров и анимаций */
+      font-family: "Orbitron", sans-serif;
       color: #c0c0c0;
       margin: 0;
       padding: 0;
@@ -26,56 +18,21 @@
       -webkit-overflow-scrolling: touch;
     }
 
-    /* Неоновые линии (оставляем только правую линию) */
+    /* Убираем неоновую линию справа */
     body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 2px;
-      height: 100%;
-      background: linear-gradient(to bottom, #cc0000, #0066cc, #00cc00);
-      animation: neonLine 6s infinite ease-in-out;
-      z-index: 100;
+      display: none;
     }
 
-    @keyframes neonLine {
-      0% { height: 10%; opacity: 0.5; }
-      50% { height: 100%; opacity: 1; }
-      100% { height: 10%; opacity: 0.5; }
-    }
-
-    /* Футуристическая анимация фона (движение точек и линий с пульсацией) */
+    /* Убираем движущийся фон и анимацию */
     body::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, rgba(100, 102, 153, 0.01), rgba(0, 0, 0, 0) 50%), 
-                  url('data:image/svg+xml;utf8,<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg"><g opacity="0.25"><circle cx="30" cy="30" r="2" fill="%23006699"/><circle cx="270" cy="270" r="2" fill="%23006699"/><circle cx="150" cy="75" r="2" fill="%23006699"/><circle cx="225" cy="105" r="2" fill="%23006699"/><circle cx="45" cy="225" r="2" fill="%23006699"/><circle cx="255" cy="45" r="2" fill="%23006699"/><circle cx="120" cy="180" r="2" fill="%23006699"/><circle cx="180" cy="135" r="2" fill="%23006699"/><circle cx="90" cy="210" r="2" fill="%23006699"/><circle cx="210" cy="90" r="2" fill="%23006699"/><circle cx="60" cy="240" r="2" fill="%23006699"/><circle cx="240" cy="60" r="2" fill="%23006699"/><line x1="30" y1="30" x2="270" y2="270" stroke="%23006699" stroke-width="0.3"/><line x1="150" y1="75" x2="225" y2="105" stroke="%23006699" stroke-width="0.3"/><line x1="45" y1="225" x2="255" y2="45" stroke="%23006699" stroke-width="0.3"/><line x1="120" y1="180" x2="180" y2="135" stroke="%23006699" stroke-width="0.3"/><line x1="90" y1="210" x2="210" y2="90" stroke="%23006699" stroke-width="0.3"/><line x1="60" y1="240" x2="240" y2="60" stroke="%23006699" stroke-width="0.3"/><line x1="30" y1="30" x2="150" y2="75" stroke="%23006699" stroke-width="0.3"/><line x1="270" y1="270" x2="225" y2="105" stroke="%23006699" stroke-width="0.3"/><line x1="45" y1="225" x2="180" y2="135" stroke="%23006699" stroke-width="0.3"/><line x1="255" y1="45" x2="120" y2="180" stroke="%23006699" stroke-width="0.3"/><line x1="90" y1="210" x2="240" y2="60" stroke="%23006699" stroke-width="0.3"/><line x1="210" y1="90" x2="60" y2="240" stroke="%23006699" stroke-width="0.3"/><line x1="30" y1="30" x2="225" y2="105" stroke="%23006699" stroke-width="0.3"/><line x1="270" y1="270" x2="150" y2="75" stroke="%23006699" stroke-width="0.3"/><line x1="45" y1="225" x2="210" y2="90" stroke="%23006699" stroke-width="0.3"/><line x1="255" y1="45" x2="90" y2="210" stroke="%23006699" stroke-width="0.3"/></g></svg>');
-      background-size: 300px 300px;
-      background-position: 0 0;
-      pointer-events: none;
-      animation: starField 20s infinite linear, dotPulse 4s infinite ease-in-out;
-    }
-
-    @keyframes starField {
-      0% { background-position: 0 0, 0 0; }
-      100% { background-position: 50px 50px, 0 0; }
-    }
-
-    @keyframes dotPulse {
-      0%, 100% { opacity: 0.25; }
-      50% { opacity: 0.35; }
+      display: none;
     }
 
     /* Меню */
     .menu {
-      background: #121212; /* Тёмный фон меню */
+      background: #121212;
       padding: 12px 20px;
-      border-bottom: 1px solid #006699; /* Неоновый синий */
+      border-bottom: 1px solid #006699;
       box-shadow: 0 2px 8px rgba(0, 102, 153, 0.3), 0 0 10px rgba(0, 102, 153, 0.1);
       display: flex;
       justify-content: center;
@@ -83,7 +40,7 @@
       position: relative;
       border-radius: 0 0 4px 4px;
       touch-action: pan-y;
-      overflow: hidden; /* Для сетчатого эффекта */
+      overflow: hidden;
     }
 
     .menu::before {
@@ -108,18 +65,17 @@
     }
 
     .menu li {
-      background: rgba(26, 26, 26, 0.8); /* Полупрозрачный фон */
+      background: rgba(26, 26, 26, 0.8);
       border: 1px solid #2d2d2d;
       padding: 8px 18px;
       cursor: pointer;
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 0 4px rgba(0, 102, 153, 0.3);
       color: #c0c0c0;
-      border-radius: 4px; /* Более округлые углы */
+      border-radius: 4px;
       text-transform: uppercase;
       font-size: 14px;
-      transition: all 0.2s ease-in-out;
       touch-action: pan-y;
-      position: relative; /* Для сетчатого эффекта */
+      position: relative;
     }
 
     .menu li::before {
@@ -136,13 +92,12 @@
 
     .menu li:hover {
       background: rgba(34, 34, 34, 0.9);
-      transform: translateY(-2px);
       box-shadow: 0 0 8px rgba(0, 102, 153, 0.5), 0 0 15px rgba(0, 102, 153, 0.2);
       color: #d0d0d0;
     }
 
     .menu .main-btn {
-      background: linear-gradient(45deg, #006699, #003366); /* Неоновый синий градиент */
+      background: linear-gradient(45deg, #006699, #003366);
       color: #e0e0e0;
       padding: 8px 24px;
       border: 1px solid #2d2d2d;
@@ -205,7 +160,7 @@
       position: relative;
       touch-action: pan-y;
       -webkit-overflow-scrolling: touch;
-      overflow: hidden; /* Для сетчатого эффекта */
+      overflow: hidden;
     }
 
     .content::before {
@@ -221,15 +176,15 @@
     }
 
     .window {
-      background: rgba(21, 21, 21, 0.9); /* Полупрозрачный фон */
+      background: rgba(21, 21, 21, 0.9);
       border: 1px solid #2d2d2d;
       box-shadow: 0 4px 12px rgba(0, 102, 153, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 0 15px rgba(0, 102, 153, 0.1);
       width: 340px;
       padding: 12px;
-      border-radius: 6px; /* Более округлые углы */
+      border-radius: 6px;
       position: relative;
       touch-action: pan-y;
-      overflow: hidden; /* Для сетчатого эффекта */
+      overflow: hidden;
     }
 
     .window::before {
@@ -251,15 +206,9 @@
       left: 2px;
       width: 4px;
       height: 4px;
-      background: #cc0000; /* Неоновый красный */
-      box-shadow: 8px 0 0 #0066cc, 16px 0 0 #00cc00; /* Неоновый синий и зелёный */
+      background: #cc0000;
+      box-shadow: 8px 0 0 #0066cc, 16px 0 0 #00cc00;
       z-index: 2;
-      animation: dotBlink 3s infinite ease-in-out;
-    }
-
-    @keyframes dotBlink {
-      0%, 100% { opacity: 0.5; }
-      50% { opacity: 1; }
     }
 
     .window-header {
@@ -291,7 +240,7 @@
     }
 
     .close-btn {
-      background: #cc0000; /* Неоновый красный */
+      background: #cc0000;
       border: 1px solid #2d2d2d;
       width: 20px;
       height: 20px;
@@ -302,12 +251,11 @@
       color: #fff;
       font-size: 12px;
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 0 6px rgba(204, 0, 0, 0.5);
-      transition: all 0.2s ease-in-out;
       touch-action: pan-y;
     }
 
     .close-btn:hover {
-      background: #ff3333; /* Более яркий неоновый красный */
+      background: #ff3333;
       box-shadow: 0 0 12px rgba(204, 0, 0, 0.7), 0 0 20px rgba(204, 0, 0, 0.3);
     }
 
@@ -365,33 +313,26 @@
     }
 
     .highlight {
-      color: #0066cc; /* Неоновый синий */
+      color: #0066cc;
       text-shadow: 0 0 2px rgba(0, 102, 204, 0.5), 0 0 5px rgba(0, 102, 204, 0.3);
     }
 
     .best-spec {
-      background: #00cc00; /* Неоновый зелёный */
+      background: #00cc00;
       color: #e0e0e0;
       padding: 2px 5px;
       border-radius: 4px;
       box-shadow: 0 0 6px rgba(0, 204, 0, 0.5);
       border: 1px solid #2d2d2d;
-      animation: specGlow 3s infinite ease-in-out;
-    }
-
-    @keyframes specGlow {
-      0%, 100% { box-shadow: 0 0 6px rgba(0, 204, 0, 0.5); }
-      50% { box-shadow: 0 0 10px rgba(0, 204, 0, 0.7); }
     }
 
     .worst-spec {
-      background: #cc0000; /* Неоновый красный */
+      background: #cc0000;
       color: #fff;
       padding: 2px 5px;
       border-radius: 4px;
       box-shadow: 0 0 6px rgba(204, 0, 0, 0.5);
       border: 1px solid #2d2d2d;
-      animation: specGlow 3s infinite ease-in-out;
     }
 
     .subjective-spec {
@@ -445,28 +386,21 @@
 
     .progress-fill-winner {
       height: 100%;
-      background: #00cc00; /* Неоновый зелёный */
+      background: #00cc00;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       border-radius: 4px;
-      animation: neonPulse 2s infinite ease-in-out;
-    }
-
-    @keyframes neonPulse {
-      0%, 100% { box-shadow: 0 0 5px rgba(0, 204, 0, 0.7); }
-      50% { box-shadow: 0 0 10px rgba(0, 204, 0, 1); }
     }
 
     .progress-fill-loser {
       height: 100%;
-      background: #cc0000; /* Неоновый красный */
+      background: #cc0000;
       position: absolute;
       top: 0;
       left: 0;
       border-radius: 4px;
-      animation: neonPulse 2s infinite ease-in-out;
     }
 
     .progress-value {
@@ -507,7 +441,6 @@
 
       .menu ul.active {
         display: flex;
-        animation: menuSlide 0.3s ease-in-out;
       }
 
       .menu li {
@@ -539,37 +472,9 @@
         flex: 0 0 60px;
       }
     }
-
-    @keyframes menuSlide {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Декор: неоновые точки */
-    .neon-dot {
-      position: fixed;
-      width: 4px;
-      height: 4px;
-      background: #0066cc;
-      border-radius: 50%;
-      box-shadow: 0 0 10px rgba(0, 102, 204, 0.5);
-      animation: dotPulse 4s infinite ease-in-out;
-      z-index: 50;
-    }
-
-    @keyframes dotPulse {
-      0%, 100% { transform: scale(1); opacity: 0.5; }
-      50% { transform: scale(1.5); opacity: 1; }
-    }
   </style>
 </head>
 <body>
-  <!-- Неоновые точки как декор -->
-  <div class="neon-dot" style="top: 10%; left: 20%;"></div>
-  <div class="neon-dot" style="top: 30%; left: 70%;"></div>
-  <div class="neon-dot" style="top: 60%; left: 40%;"></div>
-  <div class="neon-dot" style="top: 80%; left: 80%;"></div>
-
   <div class="menu">
     <button class="hamburger">☰</button>
     <ul id="menu-list">
@@ -698,27 +603,11 @@
 
     hamburger.addEventListener('click', () => {
       menuList.classList.toggle('active');
-      if (menuList.classList.contains('active')) {
-        menuList.style.animation = 'menuSlide 0.3s ease-in-out';
-      } else {
-        menuList.style.animation = 'none';
-      }
     });
     
     hamburger.addEventListener('touchstart', (e) => {
       e.preventDefault();
       menuList.classList.toggle('active');
-      if (menuList.classList.contains('active')) {
-        menuList.style.animation = 'menuSlide 0.3s ease-in-out';
-      } else {
-        menuList.style.animation = 'none';
-      }
-    });
-
-    // Анимация для неоновых точек
-    const dots = document.querySelectorAll('.neon-dot');
-    dots.forEach(dot => {
-      dot.style.animationDelay = `${Math.random() * 2}s`;
     });
   </script>
 </body>
