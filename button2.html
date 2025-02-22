@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сравнение Snapdragon 845 vs 888</title>
+  <style>
+    /* Базовые стили тела */
+    body {
+      background: #0a0a0a; /* Глубокий чёрный фон */
+      background-image: 
+        url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJElEQVQYV2NkYGD4z8DAwMiAA8XFxQVCQkI8TIyPDzAwMAAAaNkDXN6eLncAAAAASUVORK5CYII='), /* Лёгкий пиксельный шум */
+        url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M10 0 L12 2 L14 0 L16 2 L18 0 L20 2 L18 4 L20 6 L18 8 L20 10 L18 12 L20 14 L18 16 L20 18 L18 20 L16 18 L14 20 L12 18 L10 20 L8 18 L6 20 L4 18 L2 20 L0 18 L2 16 L0 14 L2 12 L0 10 L2 8 L0 6 L2 4 L0 2 L2 0 Z" fill="none" stroke="%23006699" stroke-width="0.5"/></svg>'),
+        url('data:image/svg+xml;utf8,<svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="15" r="1" fill="%23ffffff" opacity="0.01"/></svg>'),
+        url('data:image/svg+xml;utf8,<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg"><g opacity="0.25"><circle cx="30" cy="30" r="2" fill="%23006699"/><circle cx="270" cy="270" r="2" fill="%23006699"/><circle cx="150" cy="75" r="2" fill="%23006699"/><circle cx="225" cy="105" r="2" fill="%23006699"/><circle cx="45" cy="225" r="2" fill="%23006699"/><circle cx="255" cy="45" r="2" fill="%23006699"/><circle cx="120" cy="180" r="2" fill="%23006699"/><circle cx="180" cy="135" r="2" fill="%23006699"/><circle cx="90" cy="210" r="2" fill="%23006699"/><circle cx="210" cy="90" r="2" fill="%23006699"/><circle cx="60" cy="240" r="2" fill="%23006699"/><circle cx="240" cy="60" r="2" fill="%23006699"/><line x1="30" y1="30" x2="270" y2="270" stroke="%23006699" stroke-width="0.3"/><line x1="150" y1="75" x2="225" y2="105" stroke="%23006699" stroke-width="0.3"/><line x1="45" y1="225" x2="255" y2="45" stroke="%23006699" stroke-width="0.3"/><line x1="120" y1="180" x2="180" y2="135" stroke="%23006699" stroke-width="0.3"/><line x1="90" y1="210" x2="210" y2="90" stroke="%23006699" stroke-width="0.3"/><line x1="60" y1="240" x2="240" y2="60" stroke="%23006699" stroke-width="0.3"/><line x1="30" y1="30" x2="150" y2="75" stroke="%23006699" stroke-width="0.3"/><line x1="270" y1="270" x2="225" y2="105" stroke="%23006699" stroke-width="0.3"/><line x1="45" y1="225" x2="180" y2="135" stroke="%23006699" stroke-width="0.3"/><line x1="255" y1="45" x2="120" y2="180" stroke="%23006699" stroke-width="0.3"/><line x1="90" y1="210" x2="240" y2="60" stroke="%23006699" stroke-width="0.3"/><line x1="210" y1="90" x2="60" y2="240" stroke="%23006699" stroke-width="0.3"/><line x1="30" y1="30" x2="225" y2="105" stroke="%23006699" stroke-width="0.3"/><line x1="270" y1="270" x2="150" y2="75" stroke="%23006699" stroke-width="0.3"/><line x1="45" y1="225" x2="210" y2="90" stroke="%23006699" stroke-width="0.3"/><line x1="255" y1="45" x2="90" y2="210" stroke="%23006699" stroke-width="0.3"/></g></svg>'); /* Сложный узор из точек и линий */
+      background-size: 10px 10px, 20px 20px, 30px 30px, 300px 300px;
+      background-position: 0 0, 0 0, 0 0, 0 0;
+      background-blend-mode: overlay, overlay, overlay, overlay;
+      font-family: "Orbitron", sans-serif; /* Футуристичный шрифт */
+      color: #c0c0c0;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      position: relative;
+      touch-action: pan-y;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Неоновые линии (оставляем только правую линию) */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, #cc0000, #0066cc, #00cc00);
+      animation: neonLine 6s infinite ease-in-out;
+      z-index: 100;
+    }
+
+    @keyframes neonLine {
+      0% { height: 10%; opacity: 0.5; }
+      50% { height: 100%; opacity: 1; }
+      100% { height: 10%; opacity: 0.5; }
+    }
+
+    /* Футуристическая анимация фона (движение точек и линий с пульсацией) */
+    body::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(100, 102, 153, 0.01), rgba(0, 0, 0, 0) 50%), 
+                  url('data:image/svg+xml;utf8,<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg"><g opacity="0.25"><circle cx="30" cy="30" r="2" fill="%23006699"/><circle cx="270" cy="270" r="2" fill="%23006699"/><circle cx="150" cy="75" r="2" fill="%23006699"/><circle cx="225" cy="105" r="2" fill="%23006699"/><circle cx="45" cy="225" r="2" fill="%23006699"/><circle cx="255" cy="45" r="2" fill="%23006699"/><circle cx="120" cy="180" r="2" fill="%23006699"/><circle cx="180" cy="135" r="2" fill="%23006699"/><circle cx="90" cy="210" r="2" fill="%23006699"/><circle cx="210" cy="90" r="2" fill="%23006699"/><circle cx="60" cy="240" r="2" fill="%23006699"/><circle cx="240" cy="60" r="2" fill="%23006699"/><line x1="30" y1="30" x2="270" y2="270" stroke="%23006699" stroke-width="0.3"/><line x1="150" y1="75" x2="225" y2="105" stroke="%23006699" stroke-width="0.3"/><line x1="45" y1="225" x2="255" y2="45" stroke="%23006699" stroke-width="0.3"/><line x1="120" y1="180" x2="180" y2="135" stroke="%23006699" stroke-width="0.3"/><line x1="90" y1="210" x2="210" y2="90" stroke="%23006699" stroke-width="0.3"/><line x1="60" y1="240" x2="240" y2="60" stroke="%23006699" stroke-width="0.3"/><line x1="30" y1="30" x2="150" y2="75" stroke="%23006699" stroke-width="0.3"/><line x1="270" y1="270" x2="225" y2="105" stroke="%23006699" stroke-width="0.3"/><line x1="45" y1="225" x2="180" y2="135" stroke="%23006699" stroke-width="0.3"/><line x1="255" y1="45" x2="120" y2="180" stroke="%23006699" stroke-width="0.3"/><line x1="90" y1="210" x2="240" y2="60" stroke="%23006699" stroke-width="0.3"/><line x1="210" y1="90" x2="60" y2="240" stroke="%23006699" stroke-width="0.3"/><line x1="30" y1="30" x2="225" y2="105" stroke="%23006699" stroke-width="0.3"/><line x1="270" y1="270" x2="150" y2="75" stroke="%23006699" stroke-width="0.3"/><line x1="45" y1="225" x2="210" y2="90" stroke="%23006699" stroke-width="0.3"/><line x1="255" y1="45" x2="90" y2="210" stroke="%23006699" stroke-width="0.3"/></g></svg>');
+      background-size: 300px 300px;
+      background-position: 0 0;
+      pointer-events: none;
+      animation: starField 20s infinite linear, dotPulse 4s infinite ease-in-out;
+    }
+
+    @keyframes starField {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 50px 50px, 0 0; }
+    }
+
+    @keyframes dotPulse {
+      0%, 100% { opacity: 0.25; }
+      50% { opacity: 0.35; }
+    }
+
+    /* Меню */
+    .menu {
+      background: #121212; /* Тёмный фон меню */
+      padding: 12px 20px;
+      border-bottom: 1px solid #006699; /* Неоновый синий */
+      box-shadow: 0 2px 8px rgba(0, 102, 153, 0.3), 0 0 10px rgba(0, 102, 153, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      border-radius: 0 0 4px 4px;
+      touch-action: pan-y;
+      overflow: hidden; /* Для сетчатого эффекта */
+    }
+
+    .menu::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 L10 20 L20 0 L0 0 Z" fill="none" stroke="%23006699" stroke-width="0.2" opacity="0.05"/></svg>');
+      background-size: 40px 40px;
+      opacity: 0.1;
+    }
+
+    .menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 12px;
+      touch-action: pan-y;
+    }
+
+    .menu li {
+      background: rgba(26, 26, 26, 0.8); /* Полупрозрачный фон */
+      border: 1px solid #2d2d2d;
+      padding: 8px 18px;
+      cursor: pointer;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 0 4px rgba(0, 102, 153, 0.3);
+      color: #c0c0c0;
+      border-radius: 4px; /* Более округлые углы */
+      text-transform: uppercase;
+      font-size: 14px;
+      transition: all 0.2s ease-in-out;
+      touch-action: pan-y;
+      position: relative; /* Для сетчатого эффекта */
+    }
+
+    .menu li::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg width="10" height="10" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 L5 10 L10 0 Z" fill="none" stroke="%23006699" stroke-width="0.1" opacity="0.1"/></svg>');
+      background-size: 20px 20px;
+      opacity: 0.05;
+    }
+
+    .menu li:hover {
+      background: rgba(34, 34, 34, 0.9);
+      transform: translateY(-2px);
+      box-shadow: 0 0 8px rgba(0, 102, 153, 0.5), 0 0 15px rgba(0, 102, 153, 0.2);
+      color: #d0d0d0;
+    }
+
+    .menu .main-btn {
+      background: linear-gradient(45deg, #006699, #003366); /* Неоновый синий градиент */
+      color: #e0e0e0;
+      padding: 8px 24px;
+      border: 1px solid #2d2d2d;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 0 6px rgba(0, 102, 153, 0.5), 0 0 12px rgba(0, 102, 153, 0.2);
+      font-size: 16px;
+      border-radius: 4px;
+      touch-action: pan-y;
+      position: relative;
+    }
+
+    .menu .main-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg width="15" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 L7.5 15 L15 0 Z" fill="none" stroke="%23ffffff" stroke-width="0.1" opacity="0.1"/></svg>');
+      background-size: 30px 30px;
+      opacity: 0.1;
+    }
+
+    .hamburger {
+      display: none;
+      background: rgba(26, 26, 26, 0.8);
+      border: 1px solid #2d2d2d;
+      padding: 6px 18px;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 4px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      color: #c0c0c0;
+      touch-action: pan-y;
+      position: relative;
+    }
+
+    .hamburger::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg width="10" height="10" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 L5 10 L10 0 Z" fill="none" stroke="%23006699" stroke-width="0.1" opacity="0.1"/></svg>');
+      background-size: 20px 20px;
+      opacity: 0.05;
+    }
+
+    .hamburger:hover {
+      box-shadow: 0 0 8px rgba(0, 102, 153, 0.5), 0 0 15px rgba(0, 102, 153, 0.2);
+    }
+
+    /* Контент */
+    .content {
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      position: relative;
+      touch-action: pan-y;
+      -webkit-overflow-scrolling: touch;
+      overflow: hidden; /* Для сетчатого эффекта */
+    }
+
+    .content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 L15 30 L30 0 L0 0 Z" fill="none" stroke="%23006699" stroke-width="0.2" opacity="0.03"/></svg>');
+      background-size: 60px 60px;
+      opacity: 0.05;
+    }
+
+    .window {
+      background: rgba(21, 21, 21, 0.9); /* Полупрозрачный фон */
+      border: 1px solid #2d2d2d;
+      box-shadow: 0 4px 12px rgba(0, 102, 153, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 0 15px rgba(0, 102, 153, 0.1);
+      width: 340px;
+      padding: 12px;
+      border-radius: 6px; /* Более округлые углы */
+      position: relative;
+      touch-action: pan-y;
+      overflow: hidden; /* Для сетчатого эффекта */
+    }
+
+    .window::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 L10 20 L20 0 L0 0 Z" fill="none" stroke="%23006699" stroke-width="0.2" opacity="0.05"/></svg>');
+      background-size: 40px 40px;
+      opacity: 0.1;
+    }
+
+    .window::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 4px;
+      height: 4px;
+      background: #cc0000; /* Неоновый красный */
+      box-shadow: 8px 0 0 #0066cc, 16px 0 0 #00cc00; /* Неоновый синий и зелёный */
+      z-index: 2;
+      animation: dotBlink 3s infinite ease-in-out;
+    }
+
+    @keyframes dotBlink {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    .window-header {
+      background: rgba(26, 26, 26, 0.9);
+      padding: 8px 12px;
+      font-size: 16px;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #2d2d2d;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      color: #c0c0c0;
+      border-radius: 6px 6px 0 0;
+      touch-action: pan-y;
+      position: relative;
+    }
+
+    .window-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg width="15" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 L7.5 15 L15 0 Z" fill="none" stroke="%23006699" stroke-width="0.1" opacity="0.1"/></svg>');
+      background-size: 30px 30px;
+      opacity: 0.05;
+    }
+
+    .close-btn {
+      background: #cc0000; /* Неоновый красный */
+      border: 1px solid #2d2d2d;
+      width: 20px;
+      height: 20px;
+      line-height: 16px;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 12px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 0 6px rgba(204, 0, 0, 0.5);
+      transition: all 0.2s ease-in-out;
+      touch-action: pan-y;
+    }
+
+    .close-btn:hover {
+      background: #ff3333; /* Более яркий неоновый красный */
+      box-shadow: 0 0 12px rgba(204, 0, 0, 0.7), 0 0 20px rgba(204, 0, 0, 0.3);
+    }
+
+    .window-content {
+      padding: 12px;
+      font-size: 13px;
+      color: #c0c0c0;
+      background: rgba(21, 21, 21, 0.9);
+      border-radius: 0 0 6px 6px;
+      touch-action: pan-y;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      position: relative;
+    }
+
+    .window-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg width="25" height="25" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 L12.5 25 L25 0 Z" fill="none" stroke="%23006699" stroke-width="0.1" opacity="0.05"/></svg>');
+      background-size: 50px 50px;
+      opacity: 0.05;
+    }
+
+    .spec-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .spec-list li {
+      margin: 6px 0;
+      background: rgba(26, 26, 26, 0.8);
+      padding: 8px;
+      border: 1px solid #2d2d2d;
+      border-radius: 4px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 0 4px rgba(0, 102, 153, 0.1);
+      touch-action: pan-y;
+      position: relative;
+    }
+
+    .spec-list li::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg width="15" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 L7.5 15 L15 0 Z" fill="none" stroke="%23006699" stroke-width="0.1" opacity="0.05"/></svg>');
+      background-size: 30px 30px;
+      opacity: 0.05;
+    }
+
+    .highlight {
+      color: #0066cc; /* Неоновый синий */
+      text-shadow: 0 0 2px rgba(0, 102, 204, 0.5), 0 0 5px rgba(0, 102, 204, 0.3);
+    }
+
+    .best-spec {
+      background: #00cc00; /* Неоновый зелёный */
+      color: #e0e0e0;
+      padding: 2px 5px;
+      border-radius: 4px;
+      box-shadow: 0 0 6px rgba(0, 204, 0, 0.5);
+      border: 1px solid #2d2d2d;
+      animation: specGlow 3s infinite ease-in-out;
+    }
+
+    @keyframes specGlow {
+      0%, 100% { box-shadow: 0 0 6px rgba(0, 204, 0, 0.5); }
+      50% { box-shadow: 0 0 10px rgba(0, 204, 0, 0.7); }
+    }
+
+    .worst-spec {
+      background: #cc0000; /* Неоновый красный */
+      color: #fff;
+      padding: 2px 5px;
+      border-radius: 4px;
+      box-shadow: 0 0 6px rgba(204, 0, 0, 0.5);
+      border: 1px solid #2d2d2d;
+      animation: specGlow 3s infinite ease-in-out;
+    }
+
+    .subjective-spec {
+      background: #666633;
+      color: #e0e0e0;
+      padding: 2px 5px;
+      border-radius: 4px;
+      box-shadow: 0 0 6px rgba(102, 102, 51, 0.5);
+      border: 1px solid #2d2d2d;
+    }
+
+    .progress-container {
+      display: flex;
+      align-items: center;
+      margin: 6px 0;
+      touch-action: pan-y;
+      position: relative;
+    }
+
+    .progress-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 L10 20 L20 0 L0 0 Z" fill="none" stroke="%23006699" stroke-width="0.2" opacity="0.03"/></svg>');
+      background-size: 40px 40px;
+      opacity: 0.05;
+    }
+
+    .progress-label {
+      flex: 0 0 120px;
+      font-size: 12px;
+      color: #c0c0c0;
+      white-space: nowrap;
+      touch-action: pan-y;
+    }
+
+    .progress-bar {
+      flex: 1;
+      height: 10px;
+      background: rgba(26, 26, 26, 0.8);
+      border: 1px solid #2d2d2d;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      touch-action: pan-y;
+    }
+
+    .progress-fill-winner {
+      height: 100%;
+      background: #00cc00; /* Неоновый зелёный */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      border-radius: 4px;
+      animation: neonPulse 2s infinite ease-in-out;
+    }
+
+    @keyframes neonPulse {
+      0%, 100% { box-shadow: 0 0 5px rgba(0, 204, 0, 0.7); }
+      50% { box-shadow: 0 0 10px rgba(0, 204, 0, 1); }
+    }
+
+    .progress-fill-loser {
+      height: 100%;
+      background: #cc0000; /* Неоновый красный */
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 4px;
+      animation: neonPulse 2s infinite ease-in-out;
+    }
+
+    .progress-value {
+      flex: 0 0 80px;
+      font-size: 12px;
+      text-align: right;
+      color: #c0c0c0;
+      white-space: nowrap;
+      touch-action: pan-y;
+    }
+
+    .window-difference {
+      width: 480px;
+    }
+
+    /* Медиа-запросы */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .menu ul {
+        display: none;
+        flex-direction: column;
+        gap: 8px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #121212;
+        padding: 12px 0;
+        border-bottom: 1px solid #006699;
+        box-shadow: 0 2px 8px rgba(0, 102, 153, 0.3), 0 0 10px rgba(0, 102, 153, 0.1);
+        z-index: 1000;
+        border-radius: 0 0 4px 4px;
+        touch-action: pan-y;
+      }
+
+      .menu ul.active {
+        display: flex;
+        animation: menuSlide 0.3s ease-in-out;
+      }
+
+      .menu li {
+        width: 90%;
+        margin: 0 auto;
+        padding: 10px 20px;
+      }
+
+      .menu .main-btn {
+        width: 90%;
+        padding: 10px 24px;
+      }
+
+      .window,
+      .window-difference {
+        width: 92%;
+      }
+
+      .content {
+        padding: 20px 10px;
+        gap: 20px;
+      }
+
+      .progress-label {
+        flex: 0 0 90px;
+      }
+
+      .progress-value {
+        flex: 0 0 60px;
+      }
+    }
+
+    @keyframes menuSlide {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Декор: неоновые точки */
+    .neon-dot {
+      position: fixed;
+      width: 4px;
+      height: 4px;
+      background: #0066cc;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 102, 204, 0.5);
+      animation: dotPulse 4s infinite ease-in-out;
+      z-index: 50;
+    }
+
+    @keyframes dotPulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.5); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Неоновые точки как декор -->
+  <div class="neon-dot" style="top: 10%; left: 20%;"></div>
+  <div class="neon-dot" style="top: 30%; left: 70%;"></div>
+  <div class="neon-dot" style="top: 60%; left: 40%;"></div>
+  <div class="neon-dot" style="top: 80%; left: 80%;"></div>
+
+  <div class="menu">
+    <button class="hamburger">☰</button>
+    <ul id="menu-list">
+      <li>Главная</li>
+      <li>Топ сравнений</li>
+      <li class="main-btn">Сравнить ещё</li>
+      <li>Оценки</li>
+      <li>О проекте</li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <div class="window">
+      <div class="window-header">
+        <span>Snapdragon 845</span>
+        <span class="close-btn">X</span>
+      </div>
+      <div class="window-content">
+        <ul class="spec-list">
+          <li>Производительность: Для игр и приложений 2018 года</li>
+          <li>Скорость интернета: до <span class="worst-spec">1.2 Гбит/с</span> (4G)</li>
+          <li>Камера: до <span class="worst-spec">32 МП</span> или 16 МП с Zero Shutter Lag</li>
+          <li>Игры: Хорошая графика (Adreno 630), но нагрев</li>
+          <li>Батарея: Энергоэффективен для 2018 (10 нм)</li>
+          <li>Процессор: 8 ядер Kryo 385, до <span class="worst-spec">2.8 ГГц</span></li>
+          <li>ИИ: Базовый (Hexagon 685)</li>
+          <li>Видео: 4K Ultra HD+, 60 fps</li>
+          <li>Поддержка VR: Ограниченная (Adreno 630)</li>
+          <li>Звук: Qualcomm Aqstic DAC</li>
+          <li>Год выпуска: <span class="worst-spec">2018</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="window">
+      <div class="window-header">
+        <span>Snapdragon 888</span>
+        <span class="close-btn">X</span>
+      </div>
+      <div class="window-content">
+        <ul class="spec-list">
+          <li>Производительность: Отлично для современных игр</li>
+          <li>Скорость интернета: до <span class="best-spec">7.5 Гбит/с</span> (5G)</li>
+          <li>Камера: до <span class="subjective-spec">200 МП</span>, тройной ISP</li>
+          <li>Игры: <span class="best-spec">Топ графика</span> (Adreno 660)</li>
+          <li>Батарея: Высокая эффективность (5 нм)</li>
+          <li>Процессор: 8 ядер Kryo 680, до <span class="best-spec">2.84 ГГц</span></li>
+          <li>ИИ: <span class="best-spec">Мощный</span> (Hexagon 780, 26 TOPS)</li>
+          <li>Видео: 8K, 120 fps в 4K</li>
+          <li>Поддержка VR: <span class="best-spec">Высокая</span> (Adreno 660)</li>
+          <li>Звук: <span class="best-spec">Превосходный</span> (aptX Adaptive)</li>
+          <li>Год выпуска: <span class="best-spec">2020</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="window window-difference">
+      <div class="window-header">
+        <span>Разница</span>
+        <span class="close-btn">X</span>
+      </div>
+      <div class="window-content">
+        <div class="progress-container">
+          <div class="progress-label">Скорость (Гбит/с):</div>
+          <div class="progress-bar">
+            <div class="progress-fill-winner"></div>
+            <div class="progress-fill-loser" style="width: 16%;"></div>
+          </div>
+          <div class="progress-value">1.2 vs 7.5</div>
+        </div>
+        <div class="progress-container">
+          <div class="progress-label">Игры (GPU):</div>
+          <div class="progress-bar">
+            <div class="progress-fill-winner"></div>
+            <div class="progress-fill-loser" style="width: 60%;"></div>
+          </div>
+          <div class="progress-value">630 vs 660</div>
+        </div>
+        <div class="progress-container">
+          <div class="progress-label">Камера (МП):</div>
+          <div class="progress-bar">
+            <div class="progress-fill-winner"></div>
+            <div class="progress-fill-loser" style="width: 16%;"></div>
+          </div>
+          <div class="progress-value">32 vs 200</div>
+        </div>
+        <div class="progress-container">
+          <div class="progress-label">ИИ (TOPS):</div>
+          <div class="progress-bar">
+            <div class="progress-fill-winner"></div>
+            <div class="progress-fill-loser" style="width: 30%;"></div>
+          </div>
+          <div class="progress-value">~8 vs 26</div>
+        </div>
+        <div class="progress-container">
+          <div class="progress-label">Процессор (ГГц):</div>
+          <div class="progress-bar">
+            <div class="progress-fill-winner"></div>
+            <div class="progress-fill-loser" style="width: 98%;"></div>
+          </div>
+          <div class="progress-value">2.8 vs 2.84</div>
+        </div>
+        <div class="progress-container">
+          <div class="progress-label">VR (качество):</div>
+          <div class="progress-bar">
+            <div class="progress-fill-winner"></div>
+            <div class="progress-fill-loser" style="width: 50%;"></div>
+          </div>
+          <div class="progress-value">Ограничен vs Высокая</div>
+        </div>
+        <div class="progress-container">
+          <div class="progress-label">Звук (качество):</div>
+          <div class="progress-bar">
+            <div class="progress-fill-winner"></div>
+            <div class="progress-fill-loser" style="width: 70%;"></div>
+          </div>
+          <div class="progress-value">DAC vs Hi-Fi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const menuList = document.getElementById('menu-list');
+
+    hamburger.addEventListener('click', () => {
+      menuList.classList.toggle('active');
+      if (menuList.classList.contains('active')) {
+        menuList.style.animation = 'menuSlide 0.3s ease-in-out';
+      } else {
+        menuList.style.animation = 'none';
+      }
+    });
+    
+    hamburger.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      menuList.classList.toggle('active');
+      if (menuList.classList.contains('active')) {
+        menuList.style.animation = 'menuSlide 0.3s ease-in-out';
+      } else {
+        menuList.style.animation = 'none';
+      }
+    });
+
+    // Анимация для неоновых точек
+    const dots = document.querySelectorAll('.neon-dot');
+    dots.forEach(dot => {
+      dot.style.animationDelay = `${Math.random() * 2}s`;
+    });
+  </script>
+</body>
+</html>
