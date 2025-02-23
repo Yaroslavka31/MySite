@@ -6,16 +6,16 @@
   <title>Сравнение Snapdragon 845 vs 888</title>
   <style>
     body {
-      background: linear-gradient(to bottom, #1e1e2f, #2f2f4a 80%, #3f3f5a);
-      font-family: "JetBrains Mono", "Courier New", monospace;
-      color: #e0e0e0;
+      background: linear-gradient(to bottom, #1a1a2e, #2a2a48 70%, #3a3a58 90%, #4a4a68);
+      font-family: "Fira Code", "Courier New", monospace, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #e5e5e5;
       margin: 0;
       padding: 0;
       overflow-x: hidden;
       position: relative;
       touch-action: pan-y;
       -webkit-overflow-scrolling: touch;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     }
 
     body::before {
@@ -25,7 +25,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, rgba(128, 128, 128, 0.05), rgba(64, 64, 128, 0.05) 50%, transparent);
+      background: radial-gradient(circle at 20% 20%, rgba(64, 64, 128, 0.05) 0%, rgba(128, 128, 128, 0.02) 70%, transparent 100%);
       pointer-events: none;
     }
 
@@ -36,20 +36,21 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(128, 128, 128, 0.02) 50px, rgba(128, 128, 128, 0.02) 51px);
+      background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(74, 144, 226, 0.01) 10px, rgba(74, 144, 226, 0.01) 11px);
+      opacity: 0.1;
       pointer-events: none;
     }
 
     .menu {
-      background: linear-gradient(to bottom, #404040, #303030 50%, #202020);
-      padding: 12px 20px;
-      border-bottom: 2px solid #4a90e2;
-      box-shadow: 0 4px 8px rgba(74, 144, 226, 0.1);
+      background: linear-gradient(to bottom, #3c3c3c, #2c2c2c 50%, #1c1c1c);
+      padding: 15px 20px;
+      border-bottom: 2px dashed #4a90e2;
+      box-shadow: 0 6px 12px rgba(74, 144, 226, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05);
       position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      border-radius: 0 0 8px 8px;
+      border-radius: 0 0 10px 10px;
       touch-action: pan-y;
     }
 
@@ -57,26 +58,31 @@
       content: '';
       position: absolute;
       top: -1px;
-      left: 15%;
-      width: 70%;
-      height: 1px;
+      left: 10%;
+      width: 80%;
+      height: 2px;
       background: linear-gradient(to right, transparent, #4a90e2 50%, transparent);
-      opacity: 0.5;
+      opacity: 0.7;
     }
 
     .hamburger {
       display: none;
-      background: linear-gradient(to bottom, #404040, #303030);
-      border: 1px solid #4a90e2;
-      padding: 6px 40px;
+      background: linear-gradient(to bottom, #3c3c3c, #2c2c2c);
+      border: 2px solid #4a90e2;
+      padding: 8px 40px;
       font-size: 18px;
       cursor: pointer;
-      box-shadow: 0 2px 4px rgba(74, 144, 226, 0.1);
+      box-shadow: 0 3px 6px rgba(74, 144, 226, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
       width: 60%;
       text-align: center;
       color: #ffffff;
       border-radius: 6px;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .hamburger:active {
+      transform: scale(0.98);
+      background: linear-gradient(to bottom, #2c2c2c, #1c1c1c);
     }
 
     .menu ul {
@@ -84,34 +90,59 @@
       padding: 0;
       margin: 0;
       display: flex;
-      gap: 12px;
+      gap: 15px;
       touch-action: pan-y;
-      transition: all 0.3s ease;
+      transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
     .menu li {
-      background: linear-gradient(to bottom, #505050, #404040);
-      border: 1px solid #1a1a1a;
-      padding: 8px 18px;
+      background: linear-gradient(to bottom, #4c4c4c, #3c3c3c);
+      border: 2px solid #1a1a1a;
+      padding: 10px 20px;
       cursor: pointer;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
       text-align: center;
       text-transform: uppercase;
       color: #ffffff;
       border-radius: 6px;
       font-size: 14px;
       touch-action: pan-y;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu li::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, rgba(74, 144, 226, 0.3), transparent 80%);
+      opacity: 0.5;
     }
 
     .menu .main-btn {
-      padding: 8px 25px;
+      padding: 10px 25px;
       font-size: 16px;
-      background: linear-gradient(45deg, #4a90e2, #50c878);
+      background: linear-gradient(45deg, #4a90e2, #50c878 70%);
       color: #ffffff;
-      border: 1px solid #1a1a1a;
-      box-shadow: 0 2px 4px rgba(74, 144, 226, 0.1);
+      border: 2px solid #1a1a1a;
+      box-shadow: 0 4px 8px rgba(74, 144, 226, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
       border-radius: 6px;
       touch-action: pan-y;
+      position: relative;
+    }
+
+    .menu .main-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, rgba(80, 200, 120, 0.3), transparent 80%);
+      opacity: 0.5;
     }
 
     .content {
@@ -127,12 +158,14 @@
 
     .window {
       background: linear-gradient(to bottom, #ffffff, #f0f0f0);
-      border: 1px solid #333;
-      box-shadow: 0 6px 12px rgba(51, 51, 51, 0.1);
+      border: 2px solid #333;
+      box-shadow: 0 8px 16px rgba(51, 51, 51, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
       width: 340px;
-      padding: 12px;
-      border-radius: 8px;
+      padding: 15px;
+      border-radius: 10px;
       touch-action: pan-y;
+      overflow: hidden;
+      position: relative;
     }
 
     .window::before {
@@ -143,58 +176,82 @@
       width: 6px;
       height: 6px;
       background: #4a90e2;
-      box-shadow: 10px 0 0 #50c878, 20px 0 0 #f5a623;
+      box-shadow: 10px 0 0 #50c878;
+      border-radius: 2px;
+    }
+
+    .window::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, rgba(74, 144, 226, 0.2), transparent 80%);
+      opacity: 0.3;
     }
 
     .window-header {
-      background: linear-gradient(to right, #2c5282, #3b82f6);
-      padding: 8px 12px;
+      background: linear-gradient(to right, #2c3e50, #3498db);
+      padding: 10px 15px;
       font-size: 16px;
       text-transform: uppercase;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #333;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      border-bottom: 2px solid #333;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
       color: #ffffff;
-      border-radius: 6px 6px 0 0;
-      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+      border-radius: 8px 8px 0 0;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
       touch-action: pan-y;
     }
 
     .window-header::before {
       content: '⚙️';
-      margin-right: 8px;
-      font-size: 14px;
+      margin-right: 10px;
+      font-size: 16px;
     }
 
     .close-btn {
-      background: #e53e3e;
-      border: 1px solid #333;
-      width: 22px;
-      height: 22px;
-      line-height: 18px;
+      background: #e74c3c;
+      border: 2px solid #333;
+      width: 24px;
+      height: 24px;
+      line-height: 20px;
       text-align: center;
       cursor: pointer;
-      box-shadow: 0 1px 2px rgba(229, 62, 62, 0.1);
+      box-shadow: 0 2px 4px rgba(231, 76, 60, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
       color: #ffffff;
-      font-size: 12px;
+      font-size: 14px;
       border-radius: 4px;
       touch-action: pan-y;
+      transition: transform 0.2s ease;
+    }
+
+    .close-btn:active {
+      transform: scale(0.95);
     }
 
     .window-content {
-      padding: 12px;
-      font-size: 12px; /* Уменьшен шрифт в окнах с характеристиками */
+      padding: 15px;
+      font-size: 13px;
       text-align: left;
       color: #1a1a1a;
       background: #ffffff;
-      border: 1px solid #333;
+      border: 2px solid #333;
       border-top: none;
       touch-action: pan-y;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
-      height: 400px; /* Фиксированная высота для одинакового размера окон */
+      height: 400px;
+      border-radius: 0 0 8px 8px;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .spec-list {
@@ -204,108 +261,231 @@
     }
 
     .spec-list li {
-      margin: 8px 0;
-      background: linear-gradient(to bottom, #f8f8f8, #f0f0f0);
+      margin: 10px 0;
+      background: linear-gradient(to bottom, #fafafa, #f0f0f0);
       color: #1a1a1a;
-      padding: 8px;
-      border: 1px solid #333;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-      border-radius: 4px;
+      padding: 10px;
+      border: 1px dashed #333;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
       touch-action: pan-y;
+      position: relative;
+    }
+
+    .spec-list li::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, rgba(74, 144, 226, 0.1), transparent 90%);
+      opacity: 0.3;
     }
 
     .highlight {
       color: #4a90e2;
-      text-shadow: 0 0 2px rgba(74, 144, 226, 0.2);
+      text-shadow: 0 0 3px rgba(74, 144, 226, 0.4);
     }
 
     .best-spec {
       background: #d1e7dd;
       color: #1a1a1a;
-      padding: 2px 5px;
+      padding: 2px 6px;
       display: inline;
-      box-shadow: 0 1px 2px rgba(209, 231, 221, 0.2);
-      border-radius: 4px;
+      box-shadow: 0 1px 2px rgba(209, 231, 221, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      border: 1px solid #2ecc71;
       touch-action: pan-y;
+      font-size: 0.9em;
     }
 
     .worst-spec {
       background: #fee2e2;
       color: #1a1a1a;
-      padding: 2px 5px;
+      padding: 2px 6px;
       display: inline;
-      box-shadow: 0 1px 2px rgba(254, 226, 226, 0.2);
-      border-radius: 4px;
+      box-shadow: 0 1px 2px rgba(254, 226, 226, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      border: 1px solid #e74c3c;
       touch-action: pan-y;
+      font-size: 0.9em;
     }
 
     .subjective-spec {
       background: #fefcbf;
       color: #1a1a1a;
-      padding: 2px 5px;
+      padding: 2px 6px;
       display: inline;
-      box-shadow: 0 1px 2px rgba(254, 252, 191, 0.2);
-      border-radius: 4px;
+      box-shadow: 0 1px 2px rgba(254, 252, 191, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      border: 1px solid #f1c40f;
       touch-action: pan-y;
-    }
-
-    .progress-container {
-      display: flex;
-      align-items: center;
-      margin: 8px 0;
-      touch-action: pan-y;
-    }
-
-    .progress-label {
-      flex: 0 0 120px;
-      font-size: 12px;
-      color: #333;
-      font-weight: bold;
-      white-space: nowrap;
-      touch-action: pan-y;
-    }
-
-    .progress-bar {
-      flex: 1;
-      height: 12px;
-      background: linear-gradient(to bottom, #b0b0b0, #a0a0a0);
-      border: 1px solid #333;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-      position: relative;
-      border-radius: 4px;
-      touch-action: pan-y;
-    }
-
-    .progress-fill-winner {
-      height: 100%;
-      background: #d1e7dd;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      border-radius: 4px 0 0 4px;
-    }
-
-    .progress-fill-loser {
-      height: 100%;
-      background: #fee2e2;
-      position: absolute;
-      top: 0;
-      left: 0;
-      border-radius: 4px 0 0 4px;
-    }
-
-    .progress-value {
-      flex: 0 0 80px;
-      font-size: 12px;
-      text-align: right;
-      color: #1a1a1a;
-      white-space: nowrap;
-      touch-action: pan-y;
+      font-size: 0.9em;
     }
 
     .window-difference {
       width: 480px;
+      background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+      border: 2px solid #333;
+      box-shadow: 0 8px 16px rgba(51, 51, 51, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      touch-action: pan-y;
+      overflow: hidden;
+    }
+
+    .window-difference::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 6px;
+      height: 6px;
+      background: #4a90e2;
+      box-shadow: 10px 0 0 #50c878;
+      border-radius: 2px;
+    }
+
+    .window-difference::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, rgba(80, 200, 120, 0.2), transparent 80%);
+      opacity: 0.3;
+    }
+
+    .window-difference .window-header {
+      background: linear-gradient(to right, #2c3e50, #3498db);
+      padding: 10px 15px;
+      font-size: 16px;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #333;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border-radius: 8px 8px 0 0;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      touch-action: pan-y;
+    }
+
+    .window-difference .window-header::before {
+      content: '⚖️';
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    .window-difference .window-content {
+      padding: 15px;
+      font-size: 13px;
+      text-align: left;
+      color: #1a1a1a;
+      background: #ffffff;
+      border: 2px solid #333;
+      border-top: none;
+      touch-action: pan-y;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      height: 400px;
+      border-radius: 0 0 8px 8px;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    .difference-bar {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .difference-bar-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(to bottom, #fafafa, #f0f0f0);
+      border: 1px dashed #333;
+      padding: 10px;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      touch-action: pan-y;
+      position: relative;
+    }
+
+    .difference-bar-item::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, rgba(80, 200, 120, 0.1), transparent 90%);
+      opacity: 0.3;
+    }
+
+    .difference-icon {
+      font-size: 18px;
+      color: #4a90e2;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .difference-label {
+      font-weight: bold;
+      color: #1a1a1a;
+      flex: 1;
+      text-transform: uppercase;
+    }
+
+    .difference-progress {
+      width: 150px;
+      height: 12px;
+      background: #d0d0d0;
+      border: 1px solid #333;
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .difference-progress-fill-winner {
+      height: 100%;
+      background: linear-gradient(45deg, #50c878, #2ecc71);
+      width: 100%; /* 100% для выигрышных характеристик (Snapdragon 888) */
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 5px;
+    }
+
+    .difference-progress-fill-loser {
+      height: 100%;
+      background: linear-gradient(45deg, #e74c3c, #c0392b);
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 5px;
+    }
+
+    /* Процент заполнения для характеристик Snapdragon 845 (отставание) */
+    .progress-16 { width: 16%; } /* Скорость: 1.2 / 7.5 ≈ 16% */
+    .progress-60 { width: 60%; } /* Игры (GPU): субъективно, Adreno 630 слабее 660 на ~40% */
+    .progress-16b { width: 16%; } /* Камера: 32 / 200 ≈ 16% */
+    .progress-30 { width: 30%; } /* ИИ: ~8 / 26 ≈ 30% */
+    .progress-98 { width: 98%; } /* Процессор: 2.8 / 2.84 ≈ 98% */
+    .progress-50 { width: 50%; } /* VR: субъективно, ограничено vs высокая */
+    .progress-70 { width: 70%; } /* Звук: субъективно, DAC vs Hi-Fi */
+
+    .difference-hint {
+      font-size: 12px;
+      color: #666;
+      margin-top: 10px;
+      text-align: center;
+      font-style: italic;
     }
 
     @media (max-width: 768px) {
@@ -316,17 +496,17 @@
       .menu ul {
         display: none;
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background: linear-gradient(to bottom, #404040, #303030);
-        padding: 12px 0;
-        border-bottom: 2px solid #4a90e2;
-        box-shadow: 0 4px 8px rgba(74, 144, 226, 0.1);
+        background: linear-gradient(to bottom, #3c3c3c, #2c2c2c);
+        padding: 15px 0;
+        border-bottom: 2px dashed #4a90e2;
+        box-shadow: 0 6px 12px rgba(74, 144, 226, 0.15);
         z-index: 1000;
-        border-radius: 0 0 8px 8px;
+        border-radius: 0 0 10px 10px;
         opacity: 0;
         transform: translateY(-10px);
       }
@@ -340,12 +520,12 @@
       .menu li {
         width: 90%;
         margin: 0 auto;
-        padding: 10px 20px;
+        padding: 12px 20px;
       }
 
       .menu .main-btn {
         width: 90%;
-        padding: 10px 25px;
+        padding: 12px 25px;
       }
 
       .window,
@@ -359,12 +539,14 @@
         gap: 20px;
       }
 
-      .progress-label {
-        flex: 0 0 90px;
+      .window-content,
+      .window-difference .window-content {
+        height: auto;
+        max-height: 300px;
       }
 
-      .progress-value {
-        flex: 0 0 60px;
+      .difference-progress {
+        width: 100px; /* Уменьшен для мобильных */
       }
     }
   </style>
@@ -435,61 +617,66 @@
         <span class="close-btn">X</span>
       </div>
       <div class="window-content">
-        <div class="progress-container">
-          <div class="progress-label">Скорость (Гбит/с):</div>
-          <div class="progress-bar">
-            <div class="progress-fill-winner"></div>
-            <div class="progress-fill-loser" style="width: 16%;"></div>
-          </div>
-          <div class="progress-value">1.2 vs 7.5</div>
-        </div>
-        <div class="progress-container">
-          <div class="progress-label">Игры (GPU):</div>
-          <div class="progress-bar">
-            <div class="progress-fill-winner"></div>
-            <div class="progress-fill-loser" style="width: 60%;"></div>
-          </div>
-          <div class="progress-value">630 vs 660</div>
-        </div>
-        <div class="progress-container">
-          <div class="progress-label">Камера (МП):</div>
-          <div class="progress-bar">
-            <div class="progress-fill-winner"></div>
-            <div class="progress-fill-loser" style="width: 16%;"></div>
-          </div>
-          <div class="progress-value">32 vs 200</div>
-        </div>
-        <div class="progress-container">
-          <div class="progress-label">ИИ (TOPS):</div>
-          <div class="progress-bar">
-            <div class="progress-fill-winner"></div>
-            <div class="progress-fill-loser" style="width: 30%;"></div>
-          </div>
-          <div class="progress-value">~8 vs 26</div>
-        </div>
-        <div class="progress-container">
-          <div class="progress-label">Процессор (ГГц):</div>
-          <div class="progress-bar">
-            <div class="progress-fill-winner"></div>
-            <div class="progress-fill-loser" style="width: 98%;"></div>
-          </div>
-          <div class="progress-value">2.8 vs 2.84</div>
-        </div>
-        <div class="progress-container">
-          <div class="progress-label">VR (качество):</div>
-          <div class="progress-bar">
-            <div class="progress-fill-winner"></div>
-            <div class="progress-fill-loser" style="width: 50%;"></div>
-          </div>
-          <div class="progress-value">Ограничен vs Высокая</div>
-        </div>
-        <div class="progress-container">
-          <div class="progress-label">Звук (качество):</div>
-          <div class="progress-bar">
-            <div class="progress-fill-winner"></div>
-            <div class="progress-fill-loser" style="width: 70%;"></div>
-          </div>
-          <div class="progress-value">DAC vs Hi-Fi</div>
+        <ul class="difference-bar">
+          <li class="difference-bar-item">
+            <span class="difference-icon">📶</span>
+            <span class="difference-label">Скорость интернета</span>
+            <div class="difference-progress">
+              <div class="difference-progress-fill-winner"></div>
+              <div class="difference-progress-fill-loser progress-16"></div>
+            </div>
+          </li>
+          <li class="difference-bar-item">
+            <span class="difference-icon">🎮</span>
+            <span class="difference-label">Игровая графика</span>
+            <div class="difference-progress">
+              <div class="difference-progress-fill-winner"></div>
+              <div class="difference-progress-fill-loser progress-60"></div>
+            </div>
+          </li>
+          <li class="difference-bar-item">
+            <span class="difference-icon">📷</span>
+            <span class="difference-label">Камера</span>
+            <div class="difference-progress">
+              <div class="difference-progress-fill-winner"></div>
+              <div class="difference-progress-fill-loser progress-16b"></div>
+            </div>
+          </li>
+          <li class="difference-bar-item">
+            <span class="difference-icon">🤖</span>
+            <span class="difference-label">ИИ</span>
+            <div class="difference-progress">
+              <div class="difference-progress-fill-winner"></div>
+              <div class="difference-progress-fill-loser progress-30"></div>
+            </div>
+          </li>
+          <li class="difference-bar-item">
+            <span class="difference-icon">💻</span>
+            <span class="difference-label">Процессор</span>
+            <div class="difference-progress">
+              <div class="difference-progress-fill-winner"></div>
+              <div class="difference-progress-fill-loser progress-98"></div>
+            </div>
+          </li>
+          <li class="difference-bar-item">
+            <span class="difference-icon">👓</span>
+            <span class="difference-label">VR</span>
+            <div class="difference-progress">
+              <div class="difference-progress-fill-winner"></div>
+              <div class="difference-progress-fill-loser progress-50"></div>
+            </div>
+          </li>
+          <li class="difference-bar-item">
+            <span class="difference-icon">🔊</span>
+            <span class="difference-label">Звук</span>
+            <div class="difference-progress">
+              <div class="difference-progress-fill-winner"></div>
+              <div class="difference-progress-fill-loser progress-70"></div>
+            </div>
+          </li>
+        </ul>
+        <div class="difference-hint">
+          Зелёный (100%) — лучшее значение (Snapdragon 888), красный — отставание (Snapdragon 845).
         </div>
       </div>
     </div>
@@ -505,6 +692,15 @@
     hamburger.addEventListener('touchstart', (e) => {
       e.preventDefault();
       menuList.classList.toggle('active');
+    });
+
+    // Лёгкая анимация появления окон при загрузке
+    document.querySelectorAll('.window').forEach(window => {
+      window.style.opacity = '0';
+      setTimeout(() => {
+        window.style.transition = 'opacity 0.5s ease-in';
+        window.style.opacity = '1';
+      }, 100);
     });
   </script>
 </body>
